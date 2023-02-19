@@ -45,7 +45,7 @@ class Tareas {
     // console.log(leerDB());
     console.log('___________________________________');
     leerDB().forEach((tarea, index) => {
-      console.log('|                                 |');
+      console.log('|                                 ');
       const indx = `${colors.yellow(index + 1)}`;
       const { desc, completadaEn } = tarea;
       const estado = completadaEn == null
@@ -53,14 +53,14 @@ class Tareas {
         : `Completado`.green;
       console.log(`|  ${indx}. ${desc} :: ${estado}`);
     });
-    console.log('|                                 |');
+    console.log('|                                 ');
     console.log('-----------------------------------');
 
   };
 
   listarPendientescompletadas(completadas = true) {
     console.log('___________________________________');
-    console.log('|                                 |');
+    console.log('|                                 ');
 
     leerDB().forEach((tarea, index) => {
       const indx = `${colors.yellow(index + 1)}`;
@@ -71,15 +71,29 @@ class Tareas {
       if (completadaEn == null && !completadas) {
         // tareasNoCompletadas = desc;
         console.log(`|  ${indx}. ${desc} :: ${estado}`);
-        console.log('|                                 |');
+        console.log('|                                 ');
       } else if (completadaEn != null && completadas) {
         // tareasCompletadas = desc;
         console.log(`|  ${indx}. ${desc} :: ${estado}`);
-        console.log('|                                 |');
+        console.log('|                                 ');
       }
     });
     // console.log('|                                 |');
     console.log('-----------------------------------');
+  }
+  // toggle = palanca
+  toggleCompletadas(ids = []) {
+    ids.forEach(id => {
+      const tarea = this._listado[id];
+      if (!tarea.completadaEn) {
+        tarea.completadaEn = new Date().toISOString();
+      }
+    });
+    this.getListadoTareas.forEach(tarea => {
+      if (!ids.includes(tarea.id)) {
+        this._listado[tarea.id].completadaEn = null;
+      }
+    });
   }
 
 }

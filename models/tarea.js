@@ -14,3 +14,11 @@ class Tarea {
 }
 
 export { Tarea };
+
+
+// this.getListadoTareas.forEach(tarea => {
+//   const tareaAll = this._listado[tarea.id];
+//   if (!ids.includes(tarea.id)) {
+//     tareaAll.completadaEn = null;
+//   }
+// });

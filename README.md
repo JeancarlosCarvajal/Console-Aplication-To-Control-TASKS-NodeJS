@@ -2,5 +2,6 @@
 
 
 ```
- 
+ Run project:
+  node app
 ```

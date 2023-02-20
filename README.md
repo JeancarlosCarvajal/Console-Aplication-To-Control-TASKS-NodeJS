@@ -9,5 +9,5 @@
 ## Run project:
 
 ```
-  node index
+  node app
 ```

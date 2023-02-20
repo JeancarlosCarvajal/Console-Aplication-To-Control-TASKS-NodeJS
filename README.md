@@ -1,7 +1,6 @@
-# Notas:
+# Run project:
 
 
 ```
- Run project:
   node app
 ```
